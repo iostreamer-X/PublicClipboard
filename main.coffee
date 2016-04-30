@@ -12,7 +12,7 @@ monitorClipboard = (callback)->
       initial=getClipboard()
       callback(initial)
   ,
-  100
+  50
   )
 
 express = require('express')
@@ -20,7 +20,16 @@ stylus = require('stylus')
 nib = require('nib')
 morgan = require 'morgan'
 app = express()
+hyper_links = []
+texts = []
 
+monitorClipboard((data) ->
+  if(data.startsWith("http://") or data.startsWith("https://"))
+    hyper_links.unshift(data)
+  else
+    texts.unshift(data)
+
+)
 compile = (str, path) ->
   stylus(str).set('filename', path).use nib()
 
@@ -33,5 +42,5 @@ app.use stylus.middleware(
 app.use express.static(__dirname + '/public')
 
 app.get '/', (req, res) ->
-  res.render 'index', title: 'iostreamer', links:['http://iostreamer.me']
+  res.render 'index', title: 'iostreamer', links:hyper_links, text: texts
 app.listen 3000

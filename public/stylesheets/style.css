@@ -105,7 +105,7 @@ a img {
  */
 body {
   font-family: 'Georgia';
-  background-color: #faf9f0;
+  background-color: #fff;
   color: #444;
 }
 header {
@@ -122,12 +122,8 @@ header {
   border-bottom: 1px solid #df1806;
   text-shadow: 0px -1px 0px #df1806;
 }
-.container {
-  width: 500px;
-  margin: 50px auto;
-}
 .main-content {
-  width: 500px;
+  width: 800px;
   margin: 50px auto;
 }
 .main-content p {
@@ -140,6 +136,7 @@ div .link {
   border: 2px solid #808080;
   margin: 20px;
   width: 100%;
+  word-wrap: break-word;
 }
 p {
   line-height: 1.8;

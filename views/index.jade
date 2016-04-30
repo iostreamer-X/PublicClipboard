@@ -2,4 +2,7 @@ extend layout
 block content
   each link in links
     div.link
-      a(href ="#{link}") #{link}
+      a(href ="#{link}", target="_blank") #{link}
+  each data in text
+    div.link
+      p #{data}
