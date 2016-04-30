@@ -3,7 +3,10 @@ child_process = require 'child_process'
 exec = deasync child_process.exec
 
 getClipboard = ()->
-  exec 'xclip -o -selection clipboard'
+  try
+    exec 'xclip -o -selection clipboard'
+  catch error
+    console.log 'ooooooh crash'
 
 monitorClipboard = (callback)->
   initial = getClipboard()
@@ -26,7 +29,7 @@ texts = []
 monitorClipboard((data) ->
   if(data.startsWith("http://") or data.startsWith("https://"))
     hyper_links.unshift(data)
-  else
+  else if(data.length > 0)
     texts.unshift(data)
 
 )
@@ -43,4 +46,4 @@ app.use express.static(__dirname + '/public')
 
 app.get '/', (req, res) ->
   res.render 'index', title: 'iostreamer', links:hyper_links, text: texts
-app.listen 3000
+app.listen 8080
