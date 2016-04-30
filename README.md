@@ -14,3 +14,8 @@ The app runs on port 8080. To access the public clipboard visit `<your-ip:8080>`
 
 # Demo
 ![](./scrsht.png)
+
+![](./scrshtm.png)
+
+# Remarks
+publicboard.com is being resolved through my local dns server running on my laptop.
