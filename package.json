@@ -1,6 +1,6 @@
 {
   "name": "public_clipboard",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make your clipboard content accessible via HTTP to other devices on your network",
   "preferGlobal": true,
   "bin": {
