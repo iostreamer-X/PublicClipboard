@@ -1,10 +1,10 @@
 {
   "name": "public_clipboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make your clipboard content accessible via HTTP to other devices on your network",
   "preferGlobal": true,
   "bin": {
-    "filesearch": "index.js"
+    "public_clipboard": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
