@@ -1,0 +1,32 @@
+{
+  "name": "public_clipboard",
+  "version": "1.0.0",
+  "description": "Make your clipboard content accessible via HTTP to other devices on your network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iostreamer-X/PublicClipboard.git"
+  },
+  "keywords": [
+    "Clipboard",
+    "HTTP"
+  ],
+  "author": "iostreamer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iostreamer-X/PublicClipboard/issues"
+  },
+  "homepage": "https://github.com/iostreamer-X/PublicClipboard#readme",
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "deasync": "^0.1.5",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "nib": "^1.1.0",
+    "stylus": "^0.54.5"
+  }
+}
