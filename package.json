@@ -4,7 +4,8 @@
   "description": "Make your clipboard content accessible via HTTP to other devices on your network",
   "preferGlobal": true,
   "bin": {
-    "filesearch": "index.js",
+    "filesearch": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
