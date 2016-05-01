@@ -6,14 +6,15 @@ getClipboard = ()->
   try
     exec 'xclip -o -selection clipboard'
   catch error
-    console.log 'ooooooh crash'
+    null
 
 monitorClipboard = (callback)->
   initial = getClipboard()
   setInterval(() ->
     if getClipboard()!=initial
       initial=getClipboard()
-      callback(initial)
+      if initial?
+        callback(initial)
   ,
   50
   )
