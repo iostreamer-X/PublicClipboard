@@ -1,8 +1,7 @@
 extend layout
 block content
-  each link in links
-    div.link
-      a(href ="#{link}", target="_blank") #{link}
-  each data in text
-    div.link
-      p #{data}
+
+  script(id="clipboard_link", type="text/x-handlebars")
+    <a href ={{link}}  target="_blank"> {{link}}</a>
+  script(id="clipboard_text", type="text/x-handlebars")
+    {{text}}

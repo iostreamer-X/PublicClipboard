@@ -4,6 +4,38 @@ html
     title Public Clipboard
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="shortcut icon", href="/io.jpg")
+    script(src="/javascripts/lib/underscore.js")
+    script(src="/javascripts/lib/jquery.js")
+    script(src="/javascripts/lib/backbone.js")
+    script(src="/javascripts/lib/handlebars.js")
+    script(src="/javascripts/lib/socket.io.js")
+    script(src="/javascripts/client.js")
+    script(src="/javascripts/init.js")
+    script(type="text/javascript").
+      var linkCollection = new LinkCollection()
+      linkCollection.fetch({
+        success: function (data) {
+          var view = new LinkCollectionView({collection:data})
+          $(".container .main-content").append(view.render().el)
+        }
+      })
+
+      var textCollection = new TextCollection()
+      textCollection.fetch({
+        success: function (data) {
+          var view = new TextCollectionView({collection:data})
+          $(".container .main-content").append(view.render().el)
+        }
+      })
+
+      var socket = io.connect()
+      socket.on('link',function (link) {
+        linkCollection.add(link)
+      })
+      socket.on('text',function (text) {
+        textCollection.add(text)
+      })
+
   body
     header
       h1 Public Clipboard

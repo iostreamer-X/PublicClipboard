@@ -26,13 +26,6 @@ app = express()
 hyper_links = []
 texts = []
 
-monitorClipboard((data) ->
-  if(data.startsWith("http://") or data.startsWith("https://"))
-    hyper_links.unshift(data)
-  else if(data.length > 0)
-    texts.unshift(data)
-
-)
 compile = (str, path) ->
   stylus(str).set('filename', path).use nib()
 
@@ -45,5 +38,20 @@ app.use stylus.middleware(
 app.use express.static(__dirname + '/public')
 
 app.get '/', (req, res) ->
-  res.render 'index', title: 'iostreamer', links:hyper_links, text: texts
-app.listen 8080
+  res.render 'index'
+app.get '/links', (req,res) ->
+  res.send hyper_links
+app.get '/text', (req,res) ->
+  res.send texts
+
+server = app.listen 8080
+io= require('socket.io')(server)
+
+monitorClipboard((data) ->
+  if(data.startsWith("http://") or data.startsWith("https://"))
+    hyper_links.unshift({link:data})
+    io.sockets.emit 'link',{link:data}
+  else if(data.length > 0)
+    texts.unshift({text:data})
+    io.sockets.emit 'text',{text:data}
+)

@@ -129,7 +129,7 @@ header {
 .main-content p {
   margin-bottom: 20px;
 }
-div .link {
+.link {
   font-family: 'Quicksand';
   font-size: 30px;
   padding: 20px;
@@ -149,10 +149,10 @@ footer {
   font-size: 13px;
 }
 a:link {
-  color: #808080;
+  color: #000;
 }
 a:visited {
-  color: #000;
+  color: #808080;
 }
 a:hover {
   color: #bf1405;
