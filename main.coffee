@@ -66,4 +66,3 @@ stdin.addListener 'data', (d) ->
     hyper_links=[]
     texts=[]
     
-
