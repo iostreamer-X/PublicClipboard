@@ -35,6 +35,10 @@ html
       socket.on('text',function (text) {
         textCollection.add(text)
       })
+      socket.on('reset_all',function(text){
+      	linkCollection.reset()
+      	textCollection.reset()
+      })
 
   body
     header

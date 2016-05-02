@@ -56,3 +56,14 @@ monitorClipboard((data) ->
     texts.unshift({text:data})
     io.sockets.emit 'text',{text:data}
 )
+
+stdin = process.openStdin()
+stdin.addListener 'data', (d) -> 
+  data = d.toString().trim()
+  switch data
+   when 'clear'
+    io.sockets.emit 'reset_all',{data:'reset_all'}
+    hyper_links=[]
+    texts=[]
+    
+

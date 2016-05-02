@@ -22,6 +22,9 @@ var LinkCollectionView = Backbone.View.extend({
       var linkView = new LinkView({model:this.collection.last()})
       this.$el.prepend(linkView.render().el)
     }, this);
+    this.collection.on('reset', function(){
+      this.$el.html("")	
+    }, this)
   },
   render: function () {
     this.collection.each(function (text) {
@@ -57,6 +60,9 @@ var TextCollectionView = Backbone.View.extend({
       var textView = new TextView({model:this.collection.last()})
       this.$el.prepend(textView.render().el)
     }, this);
+    this.collection.on('reset', function(){
+      this.$el.html("")	
+    }, this)
   },
   render: function () {
     this.collection.each(function (text) {

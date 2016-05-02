@@ -11,7 +11,8 @@ Make your clipboard content accessible via HTTP to other devices on your network
 `public_clipboard`
 
 The app runs on port 8080. To access the public clipboard visit `<your-ip:8080>`
-
+You can also clear the content of your public clipboard by entering `clear`.
+ 
 # Demo
 ![](./scrsht.png)
 
